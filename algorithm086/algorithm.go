@@ -6,5 +6,24 @@ type ListNode struct {
 }
 
 func partition(head *ListNode, x int) *ListNode {
-	return nil
+	if head == nil {
+		return head
+	}
+	less, more := &ListNode{}, &ListNode{}
+	ptrLess, ptrMore := less, more
+	for ptr := head; ptr != nil; {
+		if ptr.Val < x {
+			ptrLess.Next = ptr
+			ptrLess = ptrLess.Next
+			ptr = ptr.Next
+			ptrLess.Next = nil
+		} else {
+			ptrMore.Next = ptr
+			ptrMore = ptrMore.Next
+			ptr = ptr.Next
+			ptrMore.Next = nil
+		}
+	}
+	ptrLess.Next = more.Next
+	return less.Next
 }
