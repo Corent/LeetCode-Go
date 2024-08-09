@@ -1,6 +1,19 @@
-package algorithm198
+package algorithm213
+
+import "slices"
 
 func rob(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+	if len(nums) == 1 {
+		return nums[0]
+	}
+	return maxInt(robv1(slices.Clone[[]int](nums[:len(nums)-1])), robv1(slices.Clone[[]int](nums[1:])))
+}
+
+// algorithm198
+func robv1(nums []int) int {
 	if len(nums) == 0 {
 		return 0
 	}
