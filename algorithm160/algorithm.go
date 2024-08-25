@@ -19,7 +19,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	return ans
 }
 
-// algorithm 142
+// algorithm372 142
 func detectCycle(head *ListNode) *ListNode {
 	var fast, slow *ListNode
 	for fast = head; fast != nil && fast != slow; {
