@@ -1,5 +1,7 @@
 package algorithm793
 
+// https://blog.51cto.com/muse/6330102
+
 func preimageSizeFZF(k int) int {
 	last := 1
 	for last < k {
